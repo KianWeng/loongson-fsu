@@ -1,0 +1,4 @@
+config BR2_PACKAGE_DOSBOX
+	bool "dosbox"
+	help
+	  A tool for dos emu

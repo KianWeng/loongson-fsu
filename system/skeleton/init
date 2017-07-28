@@ -1,0 +1,5 @@
+#!/bin/sh
+mount n /dev -t devtmpfs
+exec 2>/dev/console 1>/dev/console </dev/console
+
+exec /sbin/init

@@ -1,0 +1,31 @@
+#!/bin/sh
+kdb=""
+ms=""
+
+for i  in $(ls -d /sys/class/input/input*);
+do
+
+if [ $(cat $i/capabilities/msc) != '0' ];
+then
+kbd="$(ls -d $i/event*) $kbd"
+fi
+
+if [ $(cat $i/capabilities/rel) != '0' ];
+then
+ms="$(ls -d $i/event*) $ms"
+fi
+
+done
+
+
+for i in $kbd;
+do
+export QWS_KEYBOARD="LinuxInput:/dev/input/$(basename $i) ${QWS_KEYBOARD}"
+done
+
+for i in $ms;
+do
+export QWS_MOUSE_PROTO="LinuxInput:/dev/input/$(basename $i) ${QWS_MOUSE_PROTO}"
+done
+
+eval "$@"

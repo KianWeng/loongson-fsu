@@ -1,0 +1,25 @@
+[connection]
+id=China Mobile Internet
+uuid=5f489741-8525-4ac6-a590-303db006f999
+type=gsm
+permissions=user:qiaochong:;
+autoconnect=false
+
+[gsm]
+number=*99#
+username=guest
+password-flags=1
+apn=cmnet
+
+[ipv6]
+method=ignore
+
+[ppp]
+lcp-echo-failure=5
+lcp-echo-interval=30
+
+[serial]
+baud=115200
+
+[ipv4]
+method=auto

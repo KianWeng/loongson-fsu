@@ -1,0 +1,13 @@
+diff --git a/linux/fanotify.h b/linux/fanotify.h
+index f780e5a..79984f0 100644
+--- a/linux/fanotify.h
++++ b/linux/fanotify.h
+@@ -86,7 +86,7 @@ struct fanotify_event_metadata {
+ 	__u8 vers;
+ 	__u8 reserved;
+ 	__u16 metadata_len;
+-	__aligned_u64 mask;
++	__u64 __attribute__((aligned(8))) mask;
+ 	__s32 fd;
+ 	__s32 pid;
+ };

@@ -1,0 +1,7 @@
+#!/bin/sh
+cp gzrom.bin /tmp/
+truncate -s 512K /tmp/gzrom.bin
+#python ../tools/pmonenv.py -f /tmp/gzrom.bin -o 0x70000 -s 512 -w al=/dev/fs/fat@usb0/boot/vmlinux.ls1b rd=/dev/fs/fat@usb0/boot/initrd-ls1b.gz append='console=ttyS2,115200 loglevel=20'
+#python ../tools/pmonenv.py -f /tmp/gzrom.bin -o 0x70000 -s 512 -w al=/dev/mtd0  append='console=ttyS2,115200 loglevel=20 root=/dev/mtdblock1 rootfstype=yaffs2' gmacspeed=100
+python ../tools/pmonenv.py -f gzrom.bin -o 0x70000 -s 512 -w al=/dev/mtd0  append='console=ttyS2,115200 loglevel=20 root=/dev/mtdblock1 rootfstype=yaffs2' gmacspeed=100
+

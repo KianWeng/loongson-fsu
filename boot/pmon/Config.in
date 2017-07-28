@@ -1,0 +1,24 @@
+config BR2_TARGET_PMON
+	bool "Loongson pmon"
+	help
+	  The loongson bootloader pmon. 
+	  platforms.
+
+if BR2_TARGET_PMON
+config BR2_BOOT_PMON_BOARDNAME
+	string "loongson pmon board name"
+	help
+	  One of pmon supported boards to be built.
+	  This will be suffixed with _config to meet pmon
+	  standard naming.
+
+config BR2_BOOT_PMON_CUSTOM_LOCAL_PATH
+	string "pmon custom source site"
+	help
+	  custom the pmon source site.
+
+config BR2_BOOT_PMON_VERSION
+	string "pmon custom version"
+	help
+	  custom the pmon version
+endif

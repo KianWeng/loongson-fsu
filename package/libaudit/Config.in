@@ -1,0 +1,2 @@
+config BR2_LIBAUDIT
+	bool "libaudit"

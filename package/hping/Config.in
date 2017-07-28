@@ -1,0 +1,5 @@
+config BR2_PACKAGE_HPING
+	bool "hping"
+	default y
+	help
+		This is the hping package

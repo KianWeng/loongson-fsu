@@ -1,0 +1,12 @@
+config BR2_PACKAGE_USBIP
+	bool "usbip"
+	depends on BR2_TOOLCHAIN_HAS_THREADS # libusb
+	select BR2_PACKAGE_LIBUSB
+	select BR2_PACKAGE_LIBSYSFS
+	help
+	  USB enumeration utilities
+
+	  http://linux-usb.sourceforge.net/
+
+comment "usbutils needs a toolchain w/ threads"
+	depends on !BR2_TOOLCHAIN_HAS_THREADS

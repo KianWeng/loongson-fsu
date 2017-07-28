@@ -1,0 +1,18 @@
+/dev/ttyUSB1
+crtscts
+modem
+debug
+#lock
+#nodetach
+usepeerdns
+defaultroute
+noipdefault
+noauth
+user "ctnet@mycdma.cn"
+password "vnet.mobi"
+#lcp-echo-failure 5
+#lcp-echo-interval 30
+#persist
+0.0.0.0:0.0.0.0
+connect "/usr/sbin/chat -s -v -f /etc/ppp/peers/connect-chat"
+disconnect "/usr/sbin/chat -s -v -f /etc/ppp/peers/disconnect-chat"

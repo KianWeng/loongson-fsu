@@ -1,0 +1,4 @@
+config BR2_PACKAGE_DOSEMU
+	bool "dosemu"
+	help
+	  A tool for dos emu

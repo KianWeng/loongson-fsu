@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/dosbox -conf /root/.dosbox/dosbox.conf -c 'mount b: /root/drive_z' -c 'mount a: /root/Intel_I210-AT/' -c 'a:' 

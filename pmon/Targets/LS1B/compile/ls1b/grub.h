@@ -1,0 +1,1 @@
+#define	NGRUB	0

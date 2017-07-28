@@ -1,0 +1,47 @@
+From 851e14098abf8fad2261d2b0e5c856ec7f45b13d Mon Sep 17 00:00:00 2001
+From: QiaoChong <qiaochong@loongson.cn>
+Date: Thu, 7 Jul 2016 14:41:21 +0800
+Subject: [PATCH] better backtrace.
+
+Signed-off-by: QiaoChong <qiaochong@loongson.cn>
+---
+ gdb/mips-tdep.c | 2 ++
+ gdb/stack.c     | 2 ++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/gdb/mips-tdep.c b/gdb/mips-tdep.c
+index 99fc313..2c7866f 100644
+--- a/gdb/mips-tdep.c
++++ b/gdb/mips-tdep.c
+@@ -4014,6 +4014,8 @@ heuristic_proc_start (struct gdbarch *gdbarch, CORE_ADDR pc)
+   int seen_adjsp = 0;
+   struct inferior *inf;
+ 
++  if(pc&3)pc=pc-(pc&3);
++
+   pc = gdbarch_addr_bits_remove (gdbarch, pc);
+   start_pc = pc;
+   fence = start_pc - heuristic_fence_post;
+diff --git a/gdb/stack.c b/gdb/stack.c
+index 314e4da..8aedda1 100644
+--- a/gdb/stack.c
++++ b/gdb/stack.c
+@@ -54,6 +54,7 @@
+ 
+ #include "symfile.h"
+ #include "python/python.h"
++#include "gdb-demangle.h"
+ 
+ void (*deprecated_selected_frame_level_changed_hook) (int);
+ 
+@@ -1209,6 +1210,7 @@ print_frame (struct frame_info *frame, int print_level,
+       QUIT;
+     }
+   ui_out_text (uiout, ")");
++  print_address_symbolic (gdbarch, get_frame_pc (frame), gdb_stdout, asm_demangle, " ");
+   if (sal.symtab)
+     {
+       const char *filename_display;
+-- 
+2.7.4
+

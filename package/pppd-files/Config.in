@@ -1,0 +1,6 @@
+config BR2_PACKAGE_PPPD_FILES
+	bool "pppd files"
+	select BR2_PACKAGE_PPPD
+	help
+	  add pppd files.
+
