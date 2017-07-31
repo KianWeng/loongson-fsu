@@ -31,7 +31,7 @@ static struct mtd_partition ls1x_nand_parts[] = {
 	}, {
 		.name	= "rootfs",
 		.offset	= MTDPART_OFS_APPEND,
-		.size	= 100*1024*1024,
+		.size	= 60*1024*1024,
 	}, {
 		.name	= "data",
 		.offset	= MTDPART_OFS_APPEND,
