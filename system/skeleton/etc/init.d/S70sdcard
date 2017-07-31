@@ -1,0 +1,23 @@
+#!/bin/sh
+
+start() {
+    mkdir -pv /media/sd/CASS/ALARM &&
+    mkdir -pv /media/sd/CASS/BACKUP &&
+    mkdir -pv /media/sd/CASS/FTP/CAMERA &&
+    mkdir -pv /media/sd/CASS/FTP/INFO &&
+    mkdir -pv /media/sd/CASS/FTP/PIC &&
+    mkdir -pv /media/sd/CASS/STATE &&
+    mkdir -pv /media/sd/CASS/UPDATE 
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    *)
+        echo "Usage: /etc/init.d/S50proftpd {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0
