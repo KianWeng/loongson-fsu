@@ -1,0 +1,17 @@
+#!/bin/sh
+
+start() {
+    ./yy/app/start.sh
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    *)
+        echo "Usage: /etc/init.d/S50startsh {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0

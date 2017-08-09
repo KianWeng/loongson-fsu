@@ -7,7 +7,8 @@ start() {
     mkdir -pv /media/sd/CASS/FTP/INFO &&
     mkdir -pv /media/sd/CASS/FTP/PIC &&
     mkdir -pv /media/sd/CASS/STATE &&
-    mkdir -pv /media/sd/CASS/UPDATE 
+    mkdir -pv /media/sd/CASS/UPDATE &&
+    chown -Rv virtual:ftpusers /media/sd/CASS 
 }
 
 case "$1" in

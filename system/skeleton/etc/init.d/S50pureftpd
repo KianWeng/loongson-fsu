@@ -1,0 +1,23 @@
+#!/bin/sh
+
+start() {
+    #pure-ftpd -l puredb:/etc/pureftpd.pdb &
+    pure-ftpd --notruncate --logpid --ipv4only --chrooteveryone \
+    --daemonize --maxclientsperip 8 --maxclientsnumber 7 --userbandwidth 8192 \
+    --displaydotfiles --noanonymous --dontresolve \
+    --maxidletime 10 --createhomedir --login puredb:/etc/pureftpd.pdb \
+    --antiwarez --allowdotfiles --customerproof
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    *)
+        echo "Usage: /etc/init.d/S50pureftpd {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0
+
