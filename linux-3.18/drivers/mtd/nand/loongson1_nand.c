@@ -531,6 +531,7 @@ static int ls1x_nand_probe(struct platform_device *pdev)
 	if (ret)
 		goto err;
 
+	//ret = mtd_device_parse_register(mtd, NULL, pdata->parts, pdata->nr_parts)
 	ret = mtd_device_register(mtd, pdata->parts, pdata->nr_parts);
 	if (ret) {
 		dev_err(dev, "failed to register MTD device: %d\n", ret);
