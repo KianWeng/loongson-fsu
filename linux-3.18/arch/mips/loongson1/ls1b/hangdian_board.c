@@ -214,7 +214,7 @@ struct ls1x_i2c_platform_data ls1x_i2c2_data = {
 static struct gpio_led gpio_leds[] = {
 	{
 		.name				= "led_A",
-		.gpio				= 12,
+		.gpio				= 5,
 		.active_low			= 1,
 		.default_trigger	= "timer",
 		.default_state		= LEDS_GPIO_DEFSTATE_ON,
